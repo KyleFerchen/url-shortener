@@ -1,6 +1,7 @@
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 var testurl = require('./testurl.js');
+var port = process.env.PORT || 8080;
 
 
 // Mongodb connection url
@@ -104,6 +105,6 @@ app.get("*", function(req, res){
   res.end("404!");
 });
 
-app.listen(3000, function(){
+app.listen(port, function(){
   console.log('You are now listening to local port 3000!');
 });
