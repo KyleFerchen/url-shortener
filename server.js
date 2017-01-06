@@ -4,7 +4,7 @@ var testurl = require('./testurl.js');
 
 
 // Mongodb connection url
-var urlDb = 'mongodb://127.0.0.1:27017';
+var urlDb = process.env.MONGOLAB_URL1;
 
 /*
 // Use the connect method to conenct to the server
@@ -37,8 +37,8 @@ app.get('/new/:longurl*', function(req, res){
     MongoClient.connect(urlDb, function(err, db) {
       if (err) throw err;
       var collection = db.collection('urls');
-      collection.find({"original_url": longAddress},{"original_url": 1, "short_url": 1, "_id": 0}).toArray(function(err, documents){
-        if (err) throw err;
+      collection.find({"original_url": longAddress},{"original_url": 1, "short_url": 1, _id: 0}).toArray(function(err, documents){
+        if (err) throw err
         if (documents.length > 0) {
           theJson = documents[0];
           db.close();
@@ -62,7 +62,11 @@ app.get('/new/:longurl*', function(req, res){
               if (err) throw err;
               db.close();
             });
-            res.send(theJson);
+            theJson = {
+              "original_url": longAddress,
+              "short_url": hostName + "/" + theCount
+            }
+            res.send(JSON.stringify(theJson));
           });
         }
       });
