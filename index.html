@@ -7,15 +7,15 @@
 <body>
   <h1>URL Shortener Microservice API</h1>
   <p>This is a simple API that returns a JSON with a shortened url that can be used to access the provided url.</p>
-  <p>You must pass a valid url (include http or https and at least one period)</p>
+  <p>You must pass a valid url (include http or https and at least one period), use the short url in the address bar to visit the site faster!</p>
   <div>
     <h2> Example creation usage: </h2>
-    <p>https://little-url.herokuapp.com/new/https://www.google.com</p>
-    <p>https://little-url.herokuapp.com/new/http://foo.com:80</p>
+    <p>https://url-shortener-kf.herokuapp.com/new/https://www.google.com</p>
+    <p>https://url-shortener-kf.herokuapp.com/new/http://foo.com:80</p>
   </div>
   <div>
     <h2> Example output: </h2>
-    <p>{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }</p>
+    <p>{ "original_url":"http://foo.com/this/is/the/site/you/want/to/visit", "short_url":"url-shortener-kf.herokuapp.com/8" }</p>
   </div>
 </body>
 
